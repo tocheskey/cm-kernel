@@ -27,6 +27,7 @@
 #include <mach/msm_iomap.h>
 
 #include "acpuclock.h"
+#include "avs.h"
 #include "proc_comm.h"
 
 #if 0
@@ -365,7 +366,7 @@ int acpuclk_set_rate(unsigned long rate, enum setrate_reason reason)
 
 		/* Increase VDD if needed. */
 		if (next->vdd > cur->vdd) {
-				rc = acpuclock_set_vdd_level(next->vdd);
+		        rc = acpuclk_set_vdd_level(next->vdd);
 			if (rc) {
 				pr_err("acpuclock: fail1 Unable to increase ACPU VDD. \n");
 				mutex_unlock(&drv_state.lock);
