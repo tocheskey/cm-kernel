@@ -22,6 +22,10 @@
 #include <linux/init.h>
 #include "acpuclock.h"
 
+/* Fix CPU clock speeds on boot to prevent overclock */
+#define CPUFREQ_MAX 998400
+#define CPUFREQ_MIN 128000
+
 static int msm_cpufreq_target(struct cpufreq_policy *policy,
 				unsigned int target_freq,
 				unsigned int relation)
